@@ -3,13 +3,11 @@ package machine;
 import java.util.Scanner;
 
 public class UserInterface {
-
     CoffeeMachineManager cm = new CoffeeMachineManager();
     Scanner scanner = new Scanner(System.in);
 
     // If the user wants to buy product UI
     public void buy(int input) {
-
         cm.buy(input);
     }
 

@@ -2,12 +2,11 @@ package machine;
 
 public class CoffeeMachineManager {
 
-    int water;
-    int milk;
-    int coffeeBeans;
-    int disCups;
-    int money;
-
+    private int water;
+    private int milk;
+    private int coffeeBeans;
+    private int disCups;
+    private int money;
 
     public CoffeeMachineManager() {
         this.water = 400;
@@ -25,7 +24,6 @@ public class CoffeeMachineManager {
         System.out.println(cups * 50 + " ml of milk");
         System.out.println(cups * 15 + " g of coffee beans");
 
-
     }
 
     // Checking how much cups of coffee can we make based on machine capacity(inputs)
@@ -39,11 +37,10 @@ public class CoffeeMachineManager {
         int maxCupsByBeans = beans / 15;
         maxCups = smallest(maxCupsByWater, maxCupsByMilk, maxCupsByBeans);
 
-
         if (waterLeft < 0 || milkLeft < 0 || beansLeft < 0) {
-
             System.out.println("No, I can make only " + maxCups + " cup(s) of coffee");
-        } else if (waterLeft < 200 || milkLeft >= 0 && milkLeft < 50 || beansLeft >= 0 && beansLeft < 15) {
+
+        } else if (waterLeft < 200 || milkLeft < 50 || beansLeft < 15) {
 
             System.out.println("Yes, I can make that amount of coffee");
 
@@ -55,26 +52,8 @@ public class CoffeeMachineManager {
 
     // Smallest of 3 numbers
     public static int smallest(int a, int b, int c) {
-        int smallest = a;
 
-        if (a < b && a < c) {
-            smallest = a;
-        }
-
-        if (b < a && b < c) {
-            smallest = b;
-        }
-
-        if (c < a && c < b) {
-            smallest = c;
-        }
-
-        if (a == b && b == c) {
-
-            smallest = a;
-        }
-
-        return smallest;
+        return Math.min(Math.min(a, b), c);
 
     }
 
@@ -154,6 +133,4 @@ public class CoffeeMachineManager {
         System.out.println("I gave you $" + this.money);
         this.money = 0;
     }
-
-
 }

@@ -5,16 +5,11 @@ import java.util.Scanner;
 public class CoffeeMachine {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
-
-        CoffeeMachineManager cm = new CoffeeMachineManager();
         UserInterface ui = new UserInterface();
 
         // Program logic
         while (true) {
-
             System.out.println("Write action (buy, fill, take, remaining, exit):");
-
             String input = scanner.nextLine();
 
             if (input.equals("buy")) {
@@ -39,6 +34,7 @@ public class CoffeeMachine {
                 System.out.println();
                 continue;
             }
+
             if (input.equals("take")) {
                 ui.take();
                 System.out.println();
